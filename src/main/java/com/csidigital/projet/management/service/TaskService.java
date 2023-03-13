@@ -8,7 +8,6 @@ import com.csidigital.projet.shared.dto.Response.TaskDtoResponse;
 import java.util.List;
 
 public interface TaskService {
-
     // Get All tasks
     List<TaskDtoResponse> getAllTasks();
 
