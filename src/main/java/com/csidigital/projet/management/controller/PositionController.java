@@ -9,40 +9,43 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/positions")
+@RequestMapping("/position")
 public class PositionController {
+    @Autowired
     private final PositionService positionService;
 
-    @GetMapping("/getAll")
-    public List<PositionDtoResponse> getAllPosition() {
-        return positionService.getAllPosition();
+    @GetMapping("/getAllPosition")
+    public ResponseEntity<List<PositionDtoResponse>> getAllPosition() {
+        return new ResponseEntity<>(positionService.getAllPosition(), HttpStatus.OK);
     }
 
     @GetMapping("/getById/{id}")
-    public PositionDtoResponse getPositionById(@PathVariable Long id){
-        return positionService.getPositionById(id);
+    public ResponseEntity<PositionDtoResponse> getPositionById(@PathVariable Long id) {
+        return new ResponseEntity<>(positionService.getPositionById(id), HttpStatus.OK);
     }
-
     @PostMapping("/addPosition")
-    public PositionDtoResponse createPosition(@Valid @RequestBody PositionDtoRequest positionDtoRequest){
-        return positionService.createPosition(positionDtoRequest);
+    public ResponseEntity<PositionDtoResponse> createPosition(@Valid @RequestBody PositionDtoRequest positionDtoRequest) {
+        return new ResponseEntity<>(positionService.createPosition(positionDtoRequest), HttpStatus.OK);
     }
 
     @PutMapping("/updatePosition/{id}")
-    public PositionDtoResponse updatePosition(@PathVariable Long id,@Valid @RequestBody  PositionDtoRequest positionDtoRequest){
-        return positionService.updatePosition(id,positionDtoRequest);
+    public ResponseEntity<PositionDtoResponse> updatePosition(@Valid @RequestBody PositionDtoRequest positionDtoRequest, @PathVariable Long id) {
+        return new ResponseEntity<>(positionService.updatePosition(id,positionDtoRequest), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
     public void deletePosition(@PathVariable Long id){
-
         positionService.deletePositionById(id);
+
     }
 
 

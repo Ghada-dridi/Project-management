@@ -29,7 +29,7 @@ public class PositionServiceImpl implements PositionService {
         List<PositionDtoResponse> positionList = new ArrayList<>();
 
         for (Position position : positions) {
-            PositionDtoResponse positionDtoResponse = modelmapper.map(positions,PositionDtoResponse.class);
+            PositionDtoResponse positionDtoResponse = modelmapper.map(position,PositionDtoResponse.class);
             positionList.add(positionDtoResponse);
         }
 

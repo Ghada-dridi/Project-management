@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name="position")
 @Entity
 public class Position implements Serializable {
     @Id

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PositionDtoResponse {
-    private long id ;
+    private Long id ;
     private Integer level;
     private String name;
     private PositionName positionName;
