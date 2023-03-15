@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-public interface ExternProjectService {
+public interface ExternProjectService  {
 
     // Get All ExternProjects
     List<ExternProjectDtoResponse> getAllExternProjects();

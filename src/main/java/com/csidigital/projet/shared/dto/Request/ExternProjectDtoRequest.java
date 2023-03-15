@@ -10,17 +10,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ExternProjectDtoRequest {
-    private Long id;
-    private String projectReference;
-    private String name;
-    private String description;
-    private Double budget;
-    private Date startDate;
-    private Date endDate;
-
-
-    private ProjectStatus projectStatus;
+public class ExternProjectDtoRequest extends ProjectDtoRequest{
 
     private  String responsable;
     private  Double realCost;

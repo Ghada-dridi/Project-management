@@ -19,7 +19,7 @@ public interface InternProjectService {
 
     // Update InternProject by id
 
-    InternProjectDtoResponse updateInternProject(Long id,InternProjectDtoResponse internProjectDtoResponse);
+    InternProjectDtoResponse updateInternProject(Long id, InternProjectDtoRequest internProjectDtoRequest);
 
 
     //delete InternProject by id

@@ -31,4 +31,8 @@ public class Positioning implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private PositioningStatus positioningStatus;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ExternProject_id")
+    private ExternProject externProject;
 }

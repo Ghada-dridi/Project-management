@@ -8,6 +8,7 @@ import com.csidigital.projet.shared.dto.Request.TaskDtoRequest;
 import com.csidigital.projet.shared.dto.Response.PositionDtoResponse;
 import com.csidigital.projet.shared.dto.Response.TaskDtoResponse;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class TaskServiceImpl implements TaskService {
+
+    @Autowired
     private TaskRepository taskRepository;
+    @Autowired
     private ModelMapper modelMapper;
     @Override
     public List<TaskDtoResponse> getAllTasks() {
