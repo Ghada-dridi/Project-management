@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 public class InternProjectController {
     private final InternProjectService internProjectService;
-    @GetMapping("/getAllInternProjects")
+    @GetMapping("/getAll")
     public ResponseEntity<List<InternProjectDtoResponse>> getAllInterProjects() {
         return new ResponseEntity<>(internProjectService.getAllInternProjects(), HttpStatus.OK);
     }
@@ -28,17 +28,17 @@ public class InternProjectController {
     public ResponseEntity<InternProjectDtoResponse> getInternProjectById(@PathVariable Long id) {
         return new ResponseEntity<>(internProjectService.getInternProjectById(id), HttpStatus.OK);
     }
-    @PostMapping("/addInternProjects")
+    @PostMapping("/add")
     public ResponseEntity<InternProjectDtoResponse> createInternProject(@Valid @RequestBody InternProjectDtoRequest internProjectDtoRequest) {
         return new ResponseEntity<>(internProjectService.createInternProject(internProjectDtoRequest), HttpStatus.OK);
     }
 
-    @PutMapping("/updateInternProjects/{id}")
+    @PutMapping("/updateById/{id}")
     public ResponseEntity<InternProjectDtoResponse> updateInternProject(@Valid @RequestBody InternProjectDtoRequest internProjectDtoRequest, @PathVariable Long id) {
         return new ResponseEntity<>(internProjectService.updateInternProject(id,internProjectDtoRequest), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public void deleteInternProject(@PathVariable Long id){
         internProjectService.deleteInternProjectById(id);
 

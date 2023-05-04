@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping("/project")
 public class ProjectController {
     private final ProjectService projectService;
-    @GetMapping("/getAllProjects")
+    @GetMapping("/getAll")
     public ResponseEntity<List<ProjectDtoResponse>> getAllProjects() {
         return new ResponseEntity<>(projectService.getAllProjects(), HttpStatus.OK);
     }
@@ -28,17 +28,17 @@ public class ProjectController {
     public ResponseEntity<ProjectDtoResponse> getProjectById(@PathVariable Long id) {
         return new ResponseEntity<>(projectService.getProjectById(id), HttpStatus.OK);
     }
-    @PostMapping("/addProject")
+    @PostMapping("/add")
     public ResponseEntity<ProjectDtoResponse> createProject(@Valid @RequestBody ProjectDtoRequest projectDtoRequest) {
         return new ResponseEntity<>(projectService.createProject(projectDtoRequest), HttpStatus.OK);
     }
 
-    @PutMapping("/updateProject/{id}")
+    @PutMapping("/updateById/{id}")
     public ResponseEntity<ProjectDtoResponse> updateProject(@Valid @RequestBody ProjectDtoRequest projectDtoRequest, @PathVariable Long id) {
         return new ResponseEntity<>(projectService.updateProject(id,projectDtoRequest), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public void deleteProject(@PathVariable Long id){
         projectService.deleteProjectById(id);
 

@@ -18,7 +18,7 @@ import java.util.List;
 @RequestMapping("/task")
 public class TaskController {
     private final TaskService taskService;
-    @GetMapping("/getAllTasks")
+    @GetMapping("/getAll")
     public ResponseEntity<List<TaskDtoResponse>> getAllTasks() {
         return new ResponseEntity<>(taskService.getAllTasks(), HttpStatus.OK);
     }
@@ -27,17 +27,17 @@ public class TaskController {
     public ResponseEntity<TaskDtoResponse> getTaskById(@PathVariable Long id) {
         return new ResponseEntity<>(taskService.getTaskById(id), HttpStatus.OK);
     }
-    @PostMapping("/addTask")
+    @PostMapping("/add")
     public ResponseEntity<TaskDtoResponse> createTask(@Valid @RequestBody TaskDtoRequest taskDtoRequest) {
         return new ResponseEntity<>(taskService.createTask(taskDtoRequest), HttpStatus.OK);
     }
 
-    @PutMapping("/updateTask/{id}")
+    @PutMapping("/updateById/{id}")
     public ResponseEntity<TaskDtoResponse> updateTask(@Valid @RequestBody TaskDtoRequest taskDtoRequest, @PathVariable Long id) {
         return new ResponseEntity<>(taskService.updateTask(id,taskDtoRequest), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public void deleteTask(@PathVariable Long id){
         taskService.deleteTaskById(id);
 

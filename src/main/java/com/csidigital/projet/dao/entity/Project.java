@@ -9,10 +9,12 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.Date;
 
+
+
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@AllArgsConstructor
+@DiscriminatorColumn(name = "project_type", discriminatorType = DiscriminatorType.STRING)
 @NoArgsConstructor
-@DiscriminatorColumn(name = "type")//hadhi ta3 chnowa
+@AllArgsConstructor
 @Data
 @Entity
 public class Project implements Serializable {

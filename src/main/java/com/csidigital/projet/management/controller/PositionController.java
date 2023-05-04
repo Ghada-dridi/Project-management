@@ -23,7 +23,7 @@ public class PositionController {
     @Autowired
     private final PositionService positionService;
 
-    @GetMapping("/getAllPosition")
+    @GetMapping("/getAll")
     public ResponseEntity<List<PositionDtoResponse>> getAllPosition() {
         return new ResponseEntity<>(positionService.getAllPosition(), HttpStatus.OK);
     }
@@ -32,17 +32,17 @@ public class PositionController {
     public ResponseEntity<PositionDtoResponse> getPositionById(@PathVariable Long id) {
         return new ResponseEntity<>(positionService.getPositionById(id), HttpStatus.OK);
     }
-    @PostMapping("/addPosition")
+    @PostMapping("/add")
     public ResponseEntity<PositionDtoResponse> createPosition(@Valid @RequestBody PositionDtoRequest positionDtoRequest) {
         return new ResponseEntity<>(positionService.createPosition(positionDtoRequest), HttpStatus.OK);
     }
 
-    @PutMapping("/updatePosition/{id}")
+    @PutMapping("/updateById/{id}")
     public ResponseEntity<PositionDtoResponse> updatePosition(@Valid @RequestBody PositionDtoRequest positionDtoRequest, @PathVariable Long id) {
         return new ResponseEntity<>(positionService.updatePosition(id,positionDtoRequest), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public void deletePosition(@PathVariable Long id){
         positionService.deletePositionById(id);
 

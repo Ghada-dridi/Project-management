@@ -21,7 +21,7 @@ import java.util.List;
 public class PositioningController {
     private final PositioningService positioningService;
 
-    @GetMapping("/getAllPositionings")
+    @GetMapping("/getAll")
     public ResponseEntity<List<PositioningDtoResponse>> getAllPositioning() {
         return new ResponseEntity<>(positioningService.getAllPositioning(), HttpStatus.OK);
     }
@@ -29,17 +29,17 @@ public class PositioningController {
     public ResponseEntity<PositioningDtoResponse> getTaskById(@PathVariable Long id) {
         return new ResponseEntity<>(positioningService.getPositioningById(id), HttpStatus.OK);
     }
-    @PostMapping("/addPositioning")
+    @PostMapping("/add")
     public ResponseEntity<PositioningDtoResponse> createPositioning(@Valid @RequestBody PositioningDtoRequest positioningDtoRequest) {
         return new ResponseEntity<>(positioningService.createPositioning(positioningDtoRequest), HttpStatus.OK);
     }
 
-    @PutMapping("/updatePositioning/{id}")
+    @PutMapping("/updateById/{id}")
     public ResponseEntity<PositioningDtoResponse> updatePositioning(@Valid @RequestBody PositioningDtoRequest positioningDtoRequest, @PathVariable Long id) {
         return new ResponseEntity<>(positioningService.updatePositioning(id,positioningDtoRequest), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public void deleteTask(@PathVariable Long id){
         positioningService.deletePositioningById(id);
 

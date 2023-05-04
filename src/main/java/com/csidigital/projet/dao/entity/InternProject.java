@@ -18,6 +18,7 @@ import java.util.List;
 public class InternProject extends Project{
 
     @OneToMany(mappedBy = "internProject", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Timesheet> timesheets = new ArrayList<>();
+    private List<Timesheet> timesheets ;
+
 
 }

@@ -1,7 +1,9 @@
 package com.csidigital.projet.management.service.impl;
 
+import com.csidigital.projet.dao.entity.ExternProject;
 import com.csidigital.projet.dao.entity.Positioning;
 import com.csidigital.projet.dao.entity.Task;
+import com.csidigital.projet.dao.repository.ExternProjectRepository;
 import com.csidigital.projet.dao.repository.PositioningRepository;
 import com.csidigital.projet.management.service.PositioningService;
 import com.csidigital.projet.shared.dto.Request.PositioningDtoRequest;
@@ -16,6 +18,7 @@ import java.util.List;
 @Service
 public class PositioningServiceImpl implements PositioningService {
     private PositioningRepository positioningRepository;
+     private ExternProjectRepository externProjectRepository;
     private ModelMapper modelMapper;
     @Override
     public List<PositioningDtoResponse> getAllPositioning() {
@@ -43,6 +46,8 @@ public class PositioningServiceImpl implements PositioningService {
 
     @Override
     public PositioningDtoResponse createPositioning(PositioningDtoRequest positioningDtoRequest) {
+
+
         Positioning positioning = modelMapper.map(positioningDtoRequest, Positioning.class);
         Positioning PositioningSaved = positioningRepository.save(positioning);
         return modelMapper.map(PositioningSaved, PositioningDtoResponse.class);

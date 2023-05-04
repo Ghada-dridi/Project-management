@@ -20,6 +20,9 @@ public class ExternProject extends Project{
     private  String responsable;
     private  Double realCost;
     @OneToMany(mappedBy = "externProject", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Positioning> positionings = new ArrayList<>();
+    private List<Positioning> positionings ;
+
+
+
 
 }

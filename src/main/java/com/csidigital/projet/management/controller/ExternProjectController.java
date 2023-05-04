@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 public class ExternProjectController {
     private final ExternProjectService externProjectService;
-    @GetMapping("/getAllProjects")
+    @GetMapping("/getAll")
     public ResponseEntity<List<ExternProjectDtoResponse>> getAllExternProjects() {
         return new ResponseEntity<>(externProjectService.getAllExternProjects(), HttpStatus.OK);
     }
@@ -28,17 +28,17 @@ public class ExternProjectController {
     public ResponseEntity<ExternProjectDtoResponse> getExternProjectById(@PathVariable Long id) {
         return new ResponseEntity<>(externProjectService.getExternProjectById(id), HttpStatus.OK);
     }
-    @PostMapping("/addExternProject")
+    @PostMapping("/add")
     public ResponseEntity<ExternProjectDtoResponse> createExternProject(@Valid @RequestBody ExternProjectDtoRequest externProjectDtoRequest) {
         return new ResponseEntity<>(externProjectService.createExternProject(externProjectDtoRequest), HttpStatus.OK);
     }
 
-    @PutMapping("/updateExternProject/{id}")
+    @PutMapping("/updateById/{id}")
     public ResponseEntity<ExternProjectDtoResponse> updateExternProject(@Valid @RequestBody ExternProjectDtoRequest externProjectDtoRequest, @PathVariable Long id) {
         return new ResponseEntity<>(externProjectService.updateExternProject(id,externProjectDtoRequest), HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public void deleteExternProject(@PathVariable Long id){
         externProjectService.deleteExternProjectById(id);
 
